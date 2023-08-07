@@ -1,5 +1,5 @@
 # FlashRBF
-[![Makefile CI](https://github.com-personal/alexlovric/flash-rbf/actions/workflows/makefile.yml/badge.svg?branch=main)](https://github.com-personal/alexlovric/flash-rbf/actions/workflows/makefile.yml)
+[![Makefile CI](https://github.com/alexlovric/flash-rbf/actions/workflows/makefile.yml/badge.svg?branch=main)](https://github.com/alexlovric/flash-rbf/actions/workflows/makefile.yml)
 
 Python-Rust Interface for `flash_rbf_core`, a rust library (in the same directory), which performs Radial-Basis-Function interpolation.
 
