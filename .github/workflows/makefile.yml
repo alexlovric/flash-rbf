@@ -1,0 +1,42 @@
+name: Makefile CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build_and_test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Build
+      run: make build
+
+    - name: Run doctests
+      id: doctest
+      run: |
+        set -e
+        make doctest
+        echo "DOCTEST_EXIT_CODE=$?" >> $GITHUB_ENV
+
+    - name: Run cargo tests
+      id: cargo_tests
+      run: |
+        set -e
+        make test
+        echo "CARGO_TEST_EXIT_CODE=$?" >> $GITHUB_ENV
+
+    - name: Check exit codes
+      run: |
+        if [ "${{ env.DOCTEST_EXIT_CODE }}" -ne 0 ]; then
+          echo "Doctest failed with exit code ${{ env.DOCTEST_EXIT_CODE }}"
+          exit 1
+        fi
+        if [ "${{ env.CARGO_TEST_EXIT_CODE }}" -ne 0 ]; then
+          echo "Cargo test failed with exit code ${{ env.CARGO_TEST_EXIT_CODE }}"
+          exit 1
+        fi

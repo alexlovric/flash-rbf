@@ -1,0 +1,21 @@
+[package]
+name = "flash_rbf_core"
+version = "0.1.1"
+edition = "2021"
+description = "A blazingly fast RBF interpolator."
+
+[lib]
+name = "flash_rbf_core"
+path = "src/lib.rs"
+test = true
+doctest = false
+
+[dependencies]
+rand = "0.8.5"
+
+# ndarray and ndarray-linalg are only used for the linear solver if matrices 
+# of 500x500+ are considered (i.e., 500 dimensions/variables) otherwise
+# performance is on par with the naive solver implementation currently.
+# Uncomment this if you need to run big problems with more variables.
+# ndarray = "0.15.6"
+# ndarray-linalg = { version = "0.16", features = ["openblas-static"] }
