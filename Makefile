@@ -39,28 +39,6 @@ build: venv
 		echo "Build successful!"; \
 	fi
 
-# Compile debug binary
-build-debug: venv
-	@echo "Compiling debug binary..."
-	$(ACTIVATE) && maturin develop --release
-	@if [ $$? -ne 0 ]; then \
-		echo "Build failed!"; \
-		exit 1; \
-	else \
-		echo "Build successful!"; \
-	fi
-
-# Build python wheel
-build-wheel: venv
-	@echo "Building python wheel..."
-	$(ACTIVATE) && maturin build --release
-	@if [ $$? -ne 0 ]; then \
-		echo "Build failed!"; \
-		exit 1; \
-	else \
-		echo "Build successful!"; \
-	fi
-	
 # Remove build artifacts
 clean:
 	@echo "Removing build artifacts..."
@@ -96,4 +74,4 @@ bench:
 
 
 # Declare all phony targets
-.PHONY: venv build rebuild clean doctest
+.PHONY: venv build clean
