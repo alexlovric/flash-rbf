@@ -11,7 +11,6 @@ test = true
 doctest = false
 
 [dependencies]
-rand = "0.8.5"
 
 # ndarray and ndarray-linalg are only used for the linear solver if matrices 
 # of 500x500+ are considered (i.e., 500 dimensions/variables) otherwise
