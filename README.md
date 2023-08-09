@@ -1,7 +1,7 @@
 # FlashRBF
 [![Makefile CI](https://github.com/alexlovric/flash-rbf/actions/workflows/makefile.yml/badge.svg?branch=main)](https://github.com/alexlovric/flash-rbf/actions/workflows/makefile.yml)
 
-Python-Rust Interface for `flash_rbf_core`, a rust library by the same author (in the same directory), which performs Radial-Basis-Function interpolation.
+Python-Rust Interface for `flash_rbf_core`, a rust library (in the same directory), which performs Radial-Basis-Function interpolation.
 
 # Build instructions
 These instructions assume that Python 3 and Cargo are installed on your system. If you are on *Windows*, you may need to install a Unix-like environment such as **Git Bash** or **Cygwin** to use Make.
