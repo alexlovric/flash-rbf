@@ -1,5 +1,4 @@
 import numpy as np
-
 from scipy.interpolate import Rbf
 
 
@@ -8,13 +7,11 @@ class RBFscipy:
         self.x = x
         self.y = y
         self.epsilon = np.sqrt(epsilon)
-        # self.rbf = Rbf(x, x, y, function="gaussian", epsilon=self.epsilon)
         self.rbf = Rbf(
             *[x[:, i] for i in range(np.shape(x)[1])],
             y,
             epsilon=self.epsilon,
             function=self.kernel,
-            # function="gaussian",
             norm="sqeuclidean",
         )
         # Note the euclidean is used because the default gaussian is squaring
@@ -29,7 +26,6 @@ class RBFscipy:
             self.y,
             epsilon=self.epsilon,
             function=self.kernel,
-            # function="gaussian",
             norm="sqeuclidean",
         )
 
@@ -52,7 +48,6 @@ class RBFnumpy:
         self.sigma = sigma
         self.A = self._rbf_kernel(self.x, self.x)
         self.coef_ = np.linalg.lstsq(self.A, self.y, rcond=None)[0]
-        # self.coef_ = lstsq(self.A, self.y, cond=None)[0]
 
     def _rbf_kernel(self, X, Y):
         dist = cdist(X, Y, "sqeuclidean")
@@ -66,7 +61,6 @@ class RBFnumpy:
         self.merge_unique_points(x_new, y_new)
         self.A = self._rbf_kernel(self.x, self.x)
         self.coef_ = np.linalg.lstsq(self.A, self.y, rcond=None)[0]
-        # self.coef_ = lstsq(self.A, self.y, cond=None)[0]
 
     def merge_unique_points(self, x_new, y_new):
         for point in x_new:

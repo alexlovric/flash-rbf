@@ -1,5 +1,3 @@
-// use rand::seq::SliceRandom;
-
 use crate::utilities::squared_euclidean_distance;
 
 /// Can interpolate
