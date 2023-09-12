@@ -9,7 +9,7 @@ To set up this project, follow these steps:
 1. Clone the repository:
     ```bash
     git clone https://github.com/alexlovric/flash_rbf.git
-    cd flash_rbf
+    cd flash-rbf
     ```
 2. Create a virtual environment and build release binary:
     ```bash
