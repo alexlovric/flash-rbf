@@ -34,13 +34,13 @@ Using just the flash_rbf library to interpolate can be done as follows:
 import numpy as np
 import flash_rbf as fl
 
-def blackbox(x):
+def some_function(x):
     return x**2 + 2.0 * np.sin(2.0 * np.pi * x)
 
 bounds = (0.1, 5.0)
 x_train = np.linspace(bounds[0], bounds[1], 10)
 x_train = x_train.reshape(-1, 1)
-y_train = blackbox(x_train)
+y_train = some_function(x_train)
 
 # Train the rbf model
 rbf = fl.Rbf(x_train, y_train, "gaussian", 1.0)
@@ -50,7 +50,7 @@ x_new = np.array([0.255, 1.23, 4.6])
 pred = rbf.predict(x_new)
 
 # Update
-y_new = blackbox(x_new)
+y_new = some_function(x_new)
 rbf.update(x_new, y_new)
 ```
 
