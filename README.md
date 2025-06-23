@@ -1,7 +1,7 @@
 # FlashRBF
 [![Makefile CI](https://github.com/alexlovric/flash-rbf/actions/workflows/makefile.yml/badge.svg?branch=main)](https://github.com/alexlovric/flash-rbf/actions/workflows/makefile.yml)
 
-Python interface for rust library `flash_rbf_core`, which performs Radial Basis Function (RBF) interpolation. The RBF model is a type of machine learning model that's primarily used for supervised learning tasks. It's a neural network-based model that employs a specific type of activation function known as a radial basis function to transform its inputs.
+Rust library `flash_rbf_core` with python interface, which performs Radial Basis Function (RBF) interpolation. The RBF model is a type of machine learning model that's primarily used for supervised learning tasks. It's a neural network-based model that employs a specific type of activation function known as a radial basis function to transform its inputs.
 
 # Build instructions
 These instructions assume that Python3 and Cargo are installed on your system. If you are on *Windows*, you may need to install a Unix-like environment such as **Git Bash** or **Cygwin** to use Make.
